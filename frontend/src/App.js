@@ -1,52 +1,32 @@
-import { useEffect } from "react";
+import React, { useEffect, useState } from "react";
+import { Toaster } from "sonner";
 import "@/App.css";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import axios from "axios";
+import LandingPage from "@/components/landing/LandingPage";
 
-const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
-const API = `${BACKEND_URL}/api`;
-
-const Home = () => {
-  const helloWorldApi = async () => {
-    try {
-      const response = await axios.get(`${API}/`);
-      console.log(response.data.message);
-    } catch (e) {
-      console.error(e, `errored out requesting / api`);
-    }
-  };
+function App() {
+  const [booted, setBooted] = useState(false);
 
   useEffect(() => {
-    helloWorldApi();
+    // brief boot to let fonts/CSS settle before reveals fire
+    const t = setTimeout(() => setBooted(true), 80);
+    return () => clearTimeout(t);
   }, []);
 
   return (
-    <div>
-      <header className="App-header">
-        <a
-          className="App-link"
-          href="https://emergent.sh"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <img src="https://avatars.githubusercontent.com/in/1201222?s=120&u=2686cf91179bbafbc7a71bfbc43004cf9ae1acea&v=4" />
-        </a>
-        <p className="mt-5">Building something incredible ~!</p>
-      </header>
-    </div>
-  );
-};
-
-function App() {
-  return (
-    <div className="App">
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Home />}>
-            <Route index element={<Home />} />
-          </Route>
-        </Routes>
-      </BrowserRouter>
+    <div className="App" data-booted={booted}>
+      <Toaster
+        position="top-center"
+        theme="dark"
+        toastOptions={{
+          style: {
+            background: "rgba(10,15,20,0.92)",
+            border: "1px solid rgba(212,175,55,0.35)",
+            color: "#F0E6D2",
+            fontFamily: "Spectral, serif",
+          },
+        }}
+      />
+      <LandingPage />
     </div>
   );
 }
