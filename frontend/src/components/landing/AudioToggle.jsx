@@ -132,8 +132,7 @@ const AudioToggle = () => {
       aria-label={playing ? "Mute ambient" : "Play ambient"}
       data-testid="audio-toggle"
     >
-      {playing ? <Volume2 size={14} /> : <VolumeX size={14} />}
-      <span>{playing ? "Hudson · On" : "Hudson · Off"}</span>
+      {playing ? <Volume2 size={18} /> : <VolumeX size={18} />}
     </button>
   );
 };
