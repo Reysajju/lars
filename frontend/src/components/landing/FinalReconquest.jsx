@@ -94,6 +94,7 @@ const FinalReconquest = () => {
         {/* Letter of Marque form */}
         <motion.form
           onSubmit={handleSubmit}
+          noValidate
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
