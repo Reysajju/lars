@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { motion } from "framer-motion";
 import { toast } from "sonner";
-import { Mail, Anchor, ArrowRight } from "lucide-react";
+import { Mail, Anchor, ArrowRight, Instagram, Twitter, Facebook } from "lucide-react";
 import Embers from "./Embers";
 
 const API = `/api`;
@@ -176,31 +176,35 @@ const FinalReconquest = () => {
             aria-label="Social channels"
           >
             <a
-              href={AMAZON_URL}
+              href="https://instagram.com"
               target="_blank"
               rel="noopener noreferrer"
               className="wax-seal"
-              aria-label="Amazon"
-              data-testid="seal-amazon"
+              aria-label="Instagram"
+              data-testid="seal-instagram"
             >
-              <span className="font-display text-xs tracking-wider">A</span>
+              <Instagram size={20} />
             </a>
-            <span
+            <a
+              href="https://twitter.com"
+              target="_blank"
+              rel="noopener noreferrer"
               className="wax-seal"
-              aria-label="Voice of the Company"
-              data-testid="seal-voc"
-              title="V.O.C."
+              aria-label="Twitter"
+              data-testid="seal-twitter"
             >
-              <span className="font-display text-xs tracking-wider">VOC</span>
-            </span>
-            <span
+              <Twitter size={20} />
+            </a>
+            <a
+              href="https://facebook.com"
+              target="_blank"
+              rel="noopener noreferrer"
               className="wax-seal"
-              aria-label="Hudson"
-              data-testid="seal-hudson"
-              title="Hudson"
+              aria-label="Facebook"
+              data-testid="seal-facebook"
             >
-              <span className="font-display text-xs tracking-wider">H</span>
-            </span>
+              <Facebook size={20} />
+            </a>
           </div>
 
           <div className="font-cinzel text-[9px] tracking-[0.3em] uppercase text-[#A8A092]">
